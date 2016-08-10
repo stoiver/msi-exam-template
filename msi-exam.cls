@@ -214,6 +214,7 @@
     \vspace{5pt}
     \noindent\hspace{-1.1cm}
     \text{\beginsubsolution}
+    \vfill
     }
 
 \def\workspacetitle{
@@ -222,6 +223,7 @@
     \vspace{5pt}
     \noindent
     \text{\beginsolution}
+    \vfill
     }
 
 \def\extraspacetitle{
@@ -230,6 +232,7 @@
     \vspace{5pt}
     \noindent
     \text{\extraspaceforquestion}
+    \vfill
     }
 
 \def\workspace{\workspacetitle}
