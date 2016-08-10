@@ -1,0 +1,141 @@
+\documentclass{msi-exam}
+
+%----------------------------------
+% Comment/uncomment the following to show answers / grading comments.
+%----------------------------------
+\setboolean{showanswer}{true}
+\setboolean{showgrade}{true}
+
+%----------------------------------
+% Setup Exam Title page 
+%----------------------------------
+
+\newcommand{\examTitleOne}   {Semester 2 --- Mid-Semester, 2016} 
+\newcommand{\examTitleTwo}   {MATH1013 --- Advanced Mathematics and Applications 1}
+\newcommand{\examTitleThree} {Book A --- Calculus}
+\newcommand{\examFooter}     {MATH1013 --- Book A}
+\newcommand{\examTime}{120}
+\newcommand{\examRead}{15}
+\newcommand{\examConditions}{%
+  \begin{itemize}
+    \item Central examination.
+    \item Students must return the examination paper at the end of the examination.
+    \item This examination paper is not available to the ANU Library archives.
+  \end{itemize}
+}
+\newcommand{\examPermitted}{%
+  \begin{itemize}
+    \item One A4 page with hand written notes on both sides.\\ (This A4 page is to cover both Algebra and Calculus.)
+    \item Unmarked English-to-foreign-language dictionary (no approval from MSI required).
+    \item {\bf No electronic aids are permitted e.g. laptops, phones, calculators.}
+  \end{itemize}
+}
+\newcommand{\examMaterial}{%
+  \begin{itemize}
+    \item Scribble Paper.
+  %\item Add extra items here as required: e.g., Trigonometric Cheat Sheet.
+  \end{itemize}
+}
+\newcommand{\examImportantNotes}{%
+\begin{itemize}   
+  \item Answer the Calculus questions in Book A, and the Algebra questions in Book B, in the spaces provided.
+  \item The Algebra and Calculus sections are worth a total of 50 points each, with the value of each question as shown. It is recommended that you spend equal time on the Calculus and the Algebra papers.
+  \item A good strategy is not to spend too much time on any question.
+  Read them through first and attack them in the order that allows you
+  to make the most progress.
+  \item \textbf{\it You must justify your answers. Please be neat.}
+\end{itemize}
+}
+
+
+%================================================================================
+\begin{document}
+%================================================================================
+
+%% The question environment takes an argument, specifying the total points for that question.
+%% This automatically generates grading boxes on the title page.
+\begin{question}{10}
+\begin{enumerate}
+\item Using the definition of $\sinh x$ in terms of exponentials, find the indefinite integral
+\begin{equation*}
+\int\sinh x\,dx\,.\tag*{\subpoints{2}}
+\end{equation*}
+
+\workspace 
+
+
+\item Evaluate $\displaystyle{\int_{1}^{\sqrt3}\frac{1}{(1+x^2)(\tan^{-1} x)^2}\,dx\,.}$
+\subpoints{4}
+
+\workspace 
+
+\begin{answer}
+Make the substitution $u=\tan^{-1}x$. Then $du=\frac{1}{1+x^2}\, dx$, so 
+\begin{align*}
+\int_{1}^{\sqrt3}\frac{1}{(1+x^2)(\tan^{-1} x)^2}\,dx
+  &= \int_{\pi/4}^{\pi/3} \frac{du}{u^{2}} \\[5pt]
+  &= \left[-u^{-1}\right]_{\pi/4}^{\pi/3} \\[5pt]
+  &= -\frac3\pi+\frac4\pi\\[5pt]
+  &=\frac1\pi\,. 
+\end{align*}
+\end{answer}
+
+\begin{grading}
+\item 1 point for trying a substitution
+\item 1 point for correctly performing the change of variables
+\item 1 point for computing the resulting integral
+\item 1 point for the right answer!
+\end{grading}
+
+\newpage
+\item Evaluate $\displaystyle{\int_1^{2} (\ln x)^2\,dx\,.}$
+\subpoints{4}
+
+\workspace 
+
+\begin{answer}
+ 
+Let $U_1=(\ln x)^2$ and $dV_1 = dx$. Then $dU_1 = \frac{2}{x}\ln x\,dx$ and $V_1 = x$, so integration by parts gives
+\begin{align*}
+\int_1^{2}(\ln x)^2\,dx\,&=\,\bigg[x(\ln x)^2\bigg]_1^2 - \int_1^2 x\tfrac{2}{x}\ln x\,dx\,=\,2(\ln 2)^2 - 2\int_1^2\ln x\,dx\,.
+\end{align*}
+Now let $U_2=\ln x$ and $dV_2 = dx$. Then $dU_2 = \frac1x\,dx$ and $V_2 = x$, so integration by parts gives
+\begin{align*}
+\int_1^2\ln x\,dx\,&=\,\bigg[x\ln x\bigg]_1^2 - \int_1^2 x\tfrac1x\,dx\\
+&=\,2\ln 2 - \int_1^2 dx\\
+&=\,2\ln 2-1\,.
+\end{align*}
+Hence
+\begin{align*}
+\int_1^2(\ln x)^2\,dx\,&=\,2(\ln 2)^2 - 4\ln 2+2\,.
+\end{align*}
+
+\end{answer}
+
+\end{enumerate}
+\end{question}
+
+\begin{question}{10}
+Suppose $\alpha>1$, $K\ge 0$, and that $f:\R\to\R$ has the property that, for all $x,y\in\R$,
+\[
+|f(x)-f(y)|\,\le\, K|x-y|^{\alpha}\,.
+\]
+Prove that $f$ is constant.\qrule
+\emph{
+  Hints: for this question you may use the facts that
+  \begin{itemize}
+    \item for all $r>0$, the mapping $t\mapsto t^r$ is continuous on $[0,\infty)$, and
+    \item if $g:\R\!\setminus\!\{c\}\to\R$, then $\lim\limits_{x\to c}g(x)=0$ if and only if $\lim\limits_{x\to c}|g(x)|=0$.
+  \end{itemize}
+  Given $c\in\R$, consider $h:\R\!\setminus\!\{c\}\to\R$ defined by $h(x)=\frac{f(x)-f(c)}{x-c}$.\\[0.5em]
+  Finally, please note that $\alpha>1$, NOT $\alpha>0$.
+}
+
+\workspace
+
+\extraspace
+
+\end{question}
+
+
+\end{document}
