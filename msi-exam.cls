@@ -200,11 +200,11 @@
 
 \newcounter{question}
 
-\newenvironment{question}[1]{
+\newenvironment{question}[2][]{
     \stepcounter{question}
-    \storequestion{#1}%
+    \storequestion{#2}%
     \clearpage
-    \noi\tbf{\gdef\quest{\the\value{question}}Question \quest \quad\points{#1}}\qrule    
+    \noi\tbf{\gdef\quest{\the\value{question}}Question \quest \ \ifthenelse{\equal{#1}{}}{}{(#1)} \quad\points{#2}}\qrule    
 }{}
 
 
