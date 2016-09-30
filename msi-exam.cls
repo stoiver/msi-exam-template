@@ -1,12 +1,14 @@
 % This is a style file for MSI exams, developed by Linda Stals, Griffith Ware, and Scott Morrison
 %
+% You can always obtain the latest version from https://github.com/semorrison/msi-exam-template/raw/master/msi-exam.cls
+%
 %% This program can be redistributed and/or modified under the terms
 %% of the LaTeX Project Public License Distributed from CTAN archives
 %% in directory macros/latex/base/lppl.txt.
 % 
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
 \ProvidesClass{msi-exam}
-  [2016/08/10 v0.01 LaTeX package for MSI exams]
+  [2016/09/30 v0.02 LaTeX package for MSI exams]
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions \relax
