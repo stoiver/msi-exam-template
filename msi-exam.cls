@@ -27,8 +27,15 @@
 \usepackage[T1]{fontenc}
 \usepackage{microtype}
 \usepackage{ifthen}
+
+% some people don't seem to have access to the Linux Libertine fonts on old
+% installations, so we only loading them if they're there.
+\IfFileExists{libertine.sty}{%
 \usepackage{libertine}
+\IfFileExists{newtxmath.sty}{%
 \usepackage[libertine]{newtxmath}
+}
+}
 
 \usepackage{silence}
 \WarningFilter{latexfont}{Font shape}
