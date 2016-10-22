@@ -1,12 +1,14 @@
 % This is a style file for MSI exams, developed by Linda Stals, Griffith Ware, and Scott Morrison
 %
+% You can always obtain the latest version from https://github.com/semorrison/msi-exam-template/raw/master/msi-exam.cls
+%
 %% This program can be redistributed and/or modified under the terms
 %% of the LaTeX Project Public License Distributed from CTAN archives
 %% in directory macros/latex/base/lppl.txt.
 % 
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
 \ProvidesClass{msi-exam}
-  [2016/08/10 v0.01 LaTeX package for MSI exams]
+  [2016/09/30 v0.02 LaTeX package for MSI exams]
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions \relax
@@ -27,8 +29,15 @@
 \usepackage[T1]{fontenc}
 \usepackage{microtype}
 \usepackage{ifthen}
+
+% some people don't seem to have access to the Linux Libertine fonts on old
+% installations, so we only loading them if they're there.
+\IfFileExists{libertine.sty}{%
 \usepackage{libertine}
+\IfFileExists{newtxmath.sty}{%
 \usepackage[libertine]{newtxmath}
+}{}
+}{}
 
 \usepackage{silence}
 \WarningFilter{latexfont}{Font shape}
@@ -38,6 +47,7 @@
 
 \newboolean{showanswer}
 \newboolean{showgrade}
+\newboolean{showboxes}
 
 
 \newcommand{\beginsolution}{Write your solution here}
@@ -270,6 +280,7 @@
     %=====================================
     % Student Number
     %=====================================
+    \ifthenelse{\boolean{showboxes}}{
     \begin{minipage}[t]{0.625\textwidth}
     \vspace{-0.5cm}\mbox{\,}Student
           Number:\\[-1.35cm]
@@ -298,7 +309,7 @@
     \end{picture}
     }
     \end{minipage}
-
+    }{}
 
     \begin{center}
 
@@ -351,11 +362,13 @@
 
 
     \vfill
+    \ifthenelse{\boolean{showboxes}}{
     \begin{center}
     \mbox{
     \typesetmarkboxes
     }
     \end{center}
+    }{}
 
     \newpage
     \onehalfspacing    
