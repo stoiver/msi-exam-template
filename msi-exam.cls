@@ -161,8 +161,9 @@
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{1pt}
 
-\newcommand{\points}[1]{{\hspace*{\fill}\textbf{#1~pts}}}
-\newcommand{\subpoints}[1]{{\hspace*{\fill}\textit{#1~pts}}}
+\newcommand{\points}[1]{{\hspace*{\fill}\ifthenelse{\equal{#1}{1}}{\textit{1~pt}}{\textit{#1~pts}} }}
+\newcommand{\subpoints}[1]{{\hspace*{\fill}\ifthenelse{\equal{#1}{1}}{\textit{1~pt}}{\textit{#1~pts}} }}
+
 
 \renewcommand{\labelenumi}{(\alph{enumi})}
 \renewcommand{\labelenumii}{(\roman{enumii})}
