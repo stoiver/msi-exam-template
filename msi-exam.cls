@@ -113,6 +113,20 @@
     \end{tikzpicture}%
   \fi
 }
+\newcommand*{\TotalPoints}{%
+  \zref@refused{lastquestion}%
+  \ifnum\zref@extractdefault{lastquestion}{default}{0}>0 %
+    \count@=0 %
+    \FPeval{\partialsum}{0}
+    \@whilenum\count@<\zref@extractdefault{lastquestion}{default}{0}\relax
+    \do{%
+      \advance\count@ by\@ne
+      \FPeval{\partialsum}{clip((partialsum) + \zref@extract{question\the\count@}{default})}%
+      \zref@refused{question\the\count@}%
+    }%
+    \partialsum
+  \fi
+}
 \makeatother
 
 \usepackage{lastpage}
